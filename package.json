@@ -1,0 +1,23 @@
+{
+  "name": "oat-test-taker",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "config": "mhy config typescript -io && mhy config webpack eslint prettier -io",
+    "start": "mhy wds",
+    "build": "npm run clean && npm run config && mhy wp --mhy-env=prod",
+    "test": "mhy jest src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pablohpsilva/oat-test-taker.git"
+  },
+  "author": "Pablo Henrique <pablohpsilva@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pablohpsilva/oat-test-taker/issues"
+  },
+  "homepage": "https://github.com/pablohpsilva/oat-test-taker#readme"
+}
