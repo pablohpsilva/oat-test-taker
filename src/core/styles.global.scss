@@ -3,12 +3,60 @@
 
 
 :root {
-    // Dimensions
-    --dim-header-height: calc(50 * var(--s, 1px));
-    // --dim-header-border-height: calc(2 * var(--s));
+    --scale-min: 1200;
+    --scale-max: 1200;
+    --s: 1px;
+
+    // DIMENSIONS
+    --dim-header-height: calc(50 * var(--s));
+    --dim-gutter: calc(14 * var(--s));
+    --grid-col-width: calc(93 * var(--s));
+    --dim-site-width: calc(var(--scale-max) * var(--s));
+    --dim-site-offset: calc(var(--grid-col-width) + var(--dim-gutter));
+
+    @include on('tablet-') {
+        --dim-site-offset: var(--dim-gutter);
+    }
+
+    // FONTS
+    --font-size-x-small: calc(11 * var(--s));
+    --font-size-small: calc(12 * var(--s));
+    --font-size-normal: calc(14 * var(--s));
+    --font-size-medium: calc(16 * var(--s));
+    --font-size-large: calc(18 * var(--s));
+    --font-size-x-large: calc(20 * var(--s));
+
+    // WEIGHTS
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+
+    // COLOR - DARK
+    --color-dark-0: #000000;
+    --color-dark-0-25: #{rgba(#000000, 0.25)};
+    --color-dark-1: #262626;
+    --color-dark-1-30: #{rgba(#262626, 0.3)};
+
+    // COLOR - LIGHT
+    --color-dark-0: #ffffff;
+    --color-dark-0-25: #{rgba(#ffffff, 0.25)};
+    --color-dark-1: #f9f9f9;
+    --color-dark-1-30: #{rgba(#f9f9f9, 0.3)};
+
+    // ANIMATIONS
+    --transition-duration: 0.25s;
+    --transition-timing: ease-out;
+
+    @media screen and (min-width: 320px) and (max-width: 1200px) {
+        --s: 100vw / var(--scale-min);
+    }
 }
 
 body {
+    margin: 0;
+    padding: 0;
     padding-top: var(--dim-header-height);
     min-height: initial !important;
     overflow-x: hidden;

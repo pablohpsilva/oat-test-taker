@@ -2,6 +2,10 @@
 
 Hello and welcome! OAT Test Taker is a small application 
 
+# TODO
+
+* Remove duplicate code from Site* components
+
 
 ## Technologies and tools used
 * [mhy](https://mhy.js.org) - A zero-config, out-of-the-box, multi-purpose toolbox and development environment;

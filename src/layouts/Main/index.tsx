@@ -1,12 +1,14 @@
 import React from 'react'
 
-import { SiteHeader, SiteFooter } from '@/components'
+import { SiteContent, SiteHeader, SiteFooter } from '@/components'
 
 const Main = ({ children }) => {
     return (
         <>
             <SiteHeader />
-            {children}
+            <SiteContent>
+                {children}
+            </SiteContent>
             <SiteFooter />
         </>
     )

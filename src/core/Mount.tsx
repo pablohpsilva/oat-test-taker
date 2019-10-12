@@ -2,18 +2,22 @@ import '@/core/styles.global.scss'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
 import { createBrowserHistory } from 'history'
 
-import { Router } from '@/core'
-import { addClickHandler } from '@/utils/helpers'
-import { IMount } from '@/types/core'
+import { Store, Router } from '@/core'
 
-const Mount: IMount = el => {
+const Mount = (el: HTMLElement, initialState: {} = {}) => {
     const history = createBrowserHistory()
+    const store = Store(initialState)
 
-    document.body.addEventListener('click', addClickHandler)
+    ReactDOM.render(
+        <Provider store={store}>
+            <Router history={history} />
+        </Provider>,
 
-    ReactDOM.render(<Router history={history} />, el)
+        el
+    )
 }
 
 export default Mount
