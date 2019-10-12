@@ -1,0 +1,29 @@
+@import '~phrame2/module/reset';
+@import '~@w11r/use-breakpoint/dist/mixins';
+
+
+:root {
+    // Dimensions
+    --dim-header-height: calc(50 * var(--s, 1px));
+    // --dim-header-border-height: calc(2 * var(--s));
+}
+
+body {
+    padding-top: var(--dim-header-height);
+    min-height: initial !important;
+    overflow-x: hidden;
+}
+
+#root {
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 1;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: calc(100% - var(--dim-header-height));
+}
+
+svg {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
