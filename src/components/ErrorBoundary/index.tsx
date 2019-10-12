@@ -8,7 +8,10 @@ import IErrorBoundaryProps, { IErrorBoundaryState } from './types'
  * a class here. Easy, right?
  */
 class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryState> {
-    state: IErrorBoundaryState = { hasError: false }
+    public constructor(props) {
+        super(props)
+        this.state = { hasError: false }
+    }
 
     public static getDerivedStateFromError() {
         // Update state so the next render will show the fallback UI.
