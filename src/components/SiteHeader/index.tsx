@@ -39,7 +39,7 @@ const SiteHeader = () => {
             <StyledColumn align="center" valign="center">
                 <Link to={ROOT}>OAT - Test Takers</Link>
             </StyledColumn>
-            <StyledColumn align="flex-end" valign="center" padding="0 var(--dim-gutter)">
+            <StyledColumn align="flex-end" valign="center" padding="0 calc(2 * var(--dim-gutter))">
                 <Link to={IMPORT}>
                     <Icon src={importSVG} alt="import test takers" />
                 </Link>

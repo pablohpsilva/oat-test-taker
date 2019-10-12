@@ -8,6 +8,10 @@ import { fetchUsersAction } from '@/entities/user/actions'
 
 const StyledWrapper = styled.div`
     padding-top: var(--dim-gutter);
+
+    @media screen and (max-width: 1200px) {
+        padding: var(--dim-gutter) var(--dim-gutter) 0 var(--dim-gutter);
+    }
 `
 
 const StyledTileWrapper = styled.div`
@@ -29,11 +33,17 @@ const Home = ({ users, fetchUsersAction }) => {
 
     return (
         <StyledWrapper>
-            <InfiniteScroll pageStart={-1} loadMore={loadMore} hasMore={hasMore} threshold={100} loader={<Loading />}>
+            <InfiniteScroll
+                pageStart={-1}
+                loadMore={loadMore}
+                hasMore={hasMore}
+                threshold={100}
+                loader={<Loading key="_loader" />}
+            >
                 {users && users.length ? (
                     users.map(user => (
-                        <StyledTileWrapper key={user.userId}>
-                            <Tile key={user.userId} {...user} />
+                        <StyledTileWrapper key={user.userid}>
+                            <Tile key={user.userid} {...user} />
                         </StyledTileWrapper>
                     ))
                 ) : (

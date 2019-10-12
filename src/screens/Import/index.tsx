@@ -9,6 +9,43 @@ import { loadUsersAction } from '@/entities/user/actions'
 const StyledWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    padding: 0 var(--dim-gutter);
+`
+
+const StyledH1 = styled.h1`
+    font-size: calc(1.5 * var(--font-size-x-large));
+    text-align: center;
+    margin-bottom: calc(2 * var(--dim-gutter));
+`
+
+const StyledP = styled.p`
+    text-align: center;
+    margin-bottom: var(--dim-gutter);
+`
+
+const StyledFakeButton = styled.label`
+    border-radius: calc(1 * var(--s));
+    border: var(--s) solid var(--color-dark-1-30);
+    color: var(--color-dark-1);
+    background: var(--color-light-0);
+    width: fit-content;
+    padding: var(--dim-gutter) calc(1.5 * var(--dim-gutter));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    :hover {
+        border: var(--s) solid var(--color-dark-1-30);
+        background: var(--color-dark-1-30);
+        color: var(--color-light-0);
+    }
+`
+
+const StyledFakeButtonWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 const readFile = ({ target: { files } }) => {
@@ -30,22 +67,39 @@ const readFile = ({ target: { files } }) => {
     })
 }
 
-const Import = () => {
+const Import = ({ loadUsersAction }) => {
     const handleOnChange = async event => {
         const data = await readFile(event)
-        loadUsersAction(data)
+        // @ts-ignore
+        if (data && data.length) {
+            loadUsersAction(data)
+            alert('Import successful.')
+            return
+        }
+
+        alert('Could not import. Please check the file content.')
     }
 
     return (
-        <div>
-            <h1>Please find below the methods we support to import test takers</h1>
-            <StyledWrapper>
-                <h1>Import file</h1>
-                <p>Click on the button below to import a file</p>
-                <input type="file" onChange={handleOnChange} accept=".json,.csv" multiple={false} size={1e7} />
-                <button type="button">Start importing</button>
-            </StyledWrapper>
-        </div>
+        <StyledWrapper>
+            <StyledH1>Import users</StyledH1>
+            <StyledP>Please, select your .json or .csv file using the button below.</StyledP>
+
+            <StyledFakeButtonWrapper>
+                <StyledFakeButton htmlFor="inputfile">
+                    Click here to select file
+                    <input
+                        id="inputfile"
+                        type="file"
+                        onChange={handleOnChange}
+                        accept=".json,.csv"
+                        multiple={false}
+                        size={1e7}
+                        hidden
+                    />
+                </StyledFakeButton>
+            </StyledFakeButtonWrapper>
+        </StyledWrapper>
     )
 }
 

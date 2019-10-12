@@ -34,15 +34,15 @@ const ContentGrid = styled.div`
     align-items: center;
 `
 
-const Tile: FC<ITile> = ({ userId, email, title, lastName, firstName, picture }) => {
+const Tile: FC<ITile> = ({ userid, email, title, lastname, firstname, picture }) => {
     return (
-        <Link to={generatePath(USER, { userId })}>
+        <Link to={generatePath(USER, { userid })}>
             <StyledWrapper>
                 <Grid>
-                    <Avatar picture={picture} alt={firstName} size={60}/>
+                    <Avatar picture={picture} alt={firstname} size={60}/>
                     <ContentGrid>
                         <div>
-                            <span>{`${title ? `${title}. ` : ''}${lastName} ${firstName}`}</span>
+                            <span>{`${title ? `${title}. ` : ''}${lastname} ${firstname}`}</span>
                         </div>
                         <div>
                             <span>{email}</span>

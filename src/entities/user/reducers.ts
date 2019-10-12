@@ -9,7 +9,7 @@ export const userReducer = (state = initialState, action) => {
         const prevUsers = [...state]
 
         const users = value.reduce((acc, curr) => {
-            const item = acc.find(a => a.userId === curr.userId)
+            const item = acc.find(a => a.userid === curr.userid)
             return item ? acc : acc.concat([curr])
         }, prevUsers)
 

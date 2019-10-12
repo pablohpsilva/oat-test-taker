@@ -1,7 +1,7 @@
 export default interface ITile {
-    userId: string
-    firstName: string
-    lastName: string
+    userid: string
+    firstname: string
+    lastname: string
     title?: string
     picture?: string
 }
