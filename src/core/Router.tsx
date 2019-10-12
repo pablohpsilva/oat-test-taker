@@ -4,25 +4,24 @@ import { Switch, Route } from 'react-router-dom'
 import { hot } from 'react-hot-loader'
 
 import { Main } from '@/layouts'
-import { Home, Import } from '@/screens'
+import { Home, Import, User } from '@/screens'
 import { ROOT, IMPORT, USER } from '@/config/URL'
 import { ErrorBoundary } from '@/components'
 
 const Loader = () => <div>loading...</div>
 
-const WithLayout = ({ layout: Layout, component: Component, ...rest }) =>
-    (
-        <Route
-            {...rest}
-            render={matchProps => (
-                <Layout {...matchProps}>
-                    <ErrorBoundary>
-                        <Component {...matchProps} />
-                    </ErrorBoundary>
-                </Layout>
-            )}
-        />
-    )
+const WithLayout = ({ layout: Layout, component: Component, ...rest }) => (
+    <Route
+        {...rest}
+        render={matchProps => (
+            <Layout {...matchProps}>
+                <ErrorBoundary renderNotFound={() => <div>error :(</div>}>
+                    <Component {...matchProps} />
+                </ErrorBoundary>
+            </Layout>
+        )}
+    />
+)
 
 const WithHotLayout = hot(module)(WithLayout)
 const Router: FC<{ history: History }> = ({ history }) => {
@@ -34,8 +33,7 @@ const Router: FC<{ history: History }> = ({ history }) => {
                         <Redirect path="/en" to={ROOT} />
                         <WithHotLayout layout={Main} path={ROOT} exact component={Home} />
                         <WithHotLayout layout={Main} path={IMPORT} exact component={Import} />
-                        <WithHotLayout layout={Main} path={USER} exact component={Import} />
-                        {/* <WithHotLayout layout={Main} component={NotFound} /> */}
+                        <WithHotLayout layout={Main} path={USER} exact component={User} />
                     </Switch>
                 </Suspense>
             </ReactRouter>

@@ -3,6 +3,8 @@ import styled from 'styled-components/macro'
 import useBreakpoint from '@w11r/use-breakpoint'
 
 const StyledSiteContent = styled.div`
+    display: flex;
+    justify-content: center;
     width: 100%;
     max-width: 100vw;
     min-height: calc(100vh - var(--dim-header-height));

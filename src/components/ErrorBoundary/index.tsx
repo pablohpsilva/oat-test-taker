@@ -2,11 +2,6 @@ import React from 'react'
 
 import IErrorBoundaryProps, { IErrorBoundaryState } from './types'
 
-/**
- * Why a React class?!
- * React still can't handle the "componentDidCatch" via Hooks. That's why we're using
- * a class here. Easy, right?
- */
 class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryState> {
     public constructor(props) {
         super(props)

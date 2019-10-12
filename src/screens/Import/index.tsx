@@ -1,8 +1,8 @@
-import React, { useReducer } from 'react'
+import React from 'react'
 import styled from 'styled-components/macro'
+import { connect } from 'react-redux'
 import { includes } from 'lodash-es'
 
-import userReducer from '@/entities/user/reducers'
 import { readCSVFile, readJSONFile } from '@/utils/file'
 import { loadUsersAction } from '@/entities/user/actions'
 
@@ -23,8 +23,7 @@ const readFile = ({ target: { files } }) => {
         const reader = new FileReader()
 
         // @ts-ignore
-        reader.onload = e => (includes(type, 'csv') ? readCSVFile : readJSONFile)(e)
-            .then(resolve)
+        reader.onload = e => (includes(type, 'csv') ? readCSVFile : readJSONFile)(e).then(resolve)
 
         // Read in the image file as a data URL.
         reader.readAsText(file)
@@ -32,10 +31,9 @@ const readFile = ({ target: { files } }) => {
 }
 
 const Import = () => {
-    const [, dispatch] = useReducer(userReducer, [])
-    const handleOnChange = async (event) => {
+    const handleOnChange = async event => {
         const data = await readFile(event)
-        loadUsersAction(dispatch, data)
+        loadUsersAction(data)
     }
 
     return (
@@ -51,4 +49,11 @@ const Import = () => {
     )
 }
 
-export default Import
+const mapDispatchToProps = dispatch => ({
+    loadUsersAction: users => loadUsersAction(dispatch, users)
+})
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(Import)

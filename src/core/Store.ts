@@ -1,5 +1,6 @@
-import { createStore, Store } from 'redux'
+import { applyMiddleware, createStore, Store } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import saveSessionStorage from '@/entities/user/middleware'
 
 import rootReducer from '@/entities'
 
@@ -9,7 +10,7 @@ let storeInstance
 
 const configureStore: TConfigureStore = preloadedState => {
     if (storeInstance) return storeInstance
-    const store = createStore(rootReducer, preloadedState, composeWithDevTools())
+    const store = createStore(rootReducer, preloadedState, composeWithDevTools(applyMiddleware(saveSessionStorage)))
     storeInstance = store
     return store
 }
