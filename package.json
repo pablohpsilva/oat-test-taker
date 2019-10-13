@@ -1,6 +1,6 @@
 {
     "name": "oat-test-taker",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "",
     "main": "dist/index.js",
     "scripts": {
@@ -9,6 +9,7 @@
         "start": "concurrently \"mhy sb-start\" \"mhy wds\"",
         "prettyfix": "mhy prettier && mhy eslint --fix",
         "build": "npm run clean && npm run config && mhy wp --mhy-env=prod",
+        "release": "mhy sv",
         "test": "mhy jest src"
     },
     "repository": {
@@ -28,6 +29,11 @@
         "react-infinite-scroller": "^1.2.4",
         "react-intersection-observer": "^8.24.2",
         "x-resources": "^1.1.2"
+    },
+    "standard-version": {
+        "skip": {
+            "commit": true
+        }
     },
     "mhy": {
         "eslint": {
