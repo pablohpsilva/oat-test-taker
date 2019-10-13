@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components/macro'
+import { useInView } from 'react-intersection-observer'
+
+import avatarSVG from '@/assets/icons/avatar.svg'
 
 const StyledWrapper = styled.div`
     border-radius: calc(500 * var(--s));
@@ -19,10 +22,21 @@ const StyledWrapper = styled.div`
 `
 
 const Avatar = ({ alt, picture, size = 80 }) => {
+    const [ref, inView] = useInView({
+        triggerOnce: true,
+        threshold: 0
+    })
+    const [img, setImg] = useState(picture)
+    const pic = inView ? img : ''
+
+    const handleOnImgLoadError = () => {
+        if (pic !== '') setImg(avatarSVG)
+    }
+
     return (
-        <StyledWrapper picture={picture} size={size}>
+        <StyledWrapper ref={ref} picture={pic} size={size}>
             <picture>
-                <img src={picture} alt={alt} hidden />
+                <img src={pic} alt={alt} hidden onError={handleOnImgLoadError} />
             </picture>
         </StyledWrapper>
     )
