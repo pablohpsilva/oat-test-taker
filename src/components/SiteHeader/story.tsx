@@ -12,4 +12,4 @@ const opts = {
 
 storiesOf('Components|SiteHeader', module)
     .addDecorator(storyFn => <div>{storyFn()}</div>)
-    .add('Complex example', () => <SiteHeaderComp />, opts)
+    .add('Example', () => <SiteHeaderComp />, opts)

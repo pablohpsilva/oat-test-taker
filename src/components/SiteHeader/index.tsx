@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import useBreakpoint from '@w11r/use-breakpoint'
@@ -29,7 +29,7 @@ const StyledColumn = styled.div`
     ${({ padding }) => padding && `padding: ${padding};`}
 `
 
-const SiteHeader = () => {
+const SiteHeader: FC<{}> = () => {
     const isMobile = useBreakpoint(false, ['tablet-', true])
     const cols = isMobile ? '2fr 8fr 2fr' : 'auto auto auto'
 

@@ -1,15 +1,15 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { SiteFooter } from '@/components'
+import { Container } from '@/components'
 import readme from './readme.raw.md'
 
-const SiteFooterComp = () => <SiteFooter />
+const ContainerComp = () => <Container>I'm centered!</Container>
 
 const opts = {
     notes: { markdown: readme }
 }
 
-storiesOf('Components|SiteFooter', module)
+storiesOf('Components|Container', module)
     .addDecorator(storyFn => <div>{storyFn()}</div>)
-    .add('Complex example', () => <SiteFooterComp />, opts)
+    .add('Example', () => <ContainerComp />, opts)

@@ -12,4 +12,4 @@ const opts = {
 
 storiesOf('Components|ErrorBoundary', module)
     .addDecorator(storyFn => <div>{storyFn()}</div>)
-    .add('Complex example', () => <ErrorBoundaryComp />, opts)
+    .add('Example', () => <ErrorBoundaryComp />, opts)

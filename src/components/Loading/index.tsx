@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { FC } from 'react'
 import styled from 'styled-components/macro'
 
 import loadingSVG from '@/assets/animation/loading.svg'
+import { Icon } from '@/components'
+import ILoading from './types'
 
 const StyledWrapper = styled.div`
     display: flex;
@@ -11,11 +13,9 @@ const StyledWrapper = styled.div`
     padding: var(--dim-gutter);
 `
 
-const Loading = ({ size = 30 }) => (
+const Loading: FC<ILoading> = ({ size = 30 }) => (
     <StyledWrapper>
-        <picture>
-            <img src={loadingSVG} alt="loading..." height={size} />
-        </picture>
+        <Icon src={loadingSVG} alt="loading..." size={size} />
     </StyledWrapper>
 )
 

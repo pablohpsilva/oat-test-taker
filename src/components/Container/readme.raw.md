@@ -1,6 +1,7 @@
-# SiteHeader
+# Container
 
-This is the site/app navbar/header. 
+This is a container component responsible for making its
+`children` always on the screen.
 
 ## Props
 

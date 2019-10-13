@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Container, SiteContent, SiteHeader, SiteFooter } from '@/components'
+import { Container, SiteContent, SiteHeader } from '@/components'
 
 const Main = ({ children }) => {
     return (
@@ -9,7 +9,6 @@ const Main = ({ children }) => {
             <SiteContent>
                 <Container>{children}</Container>
             </SiteContent>
-            <SiteFooter />
         </>
     )
 }

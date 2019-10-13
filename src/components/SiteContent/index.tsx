@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import styled from 'styled-components/macro'
 import useBreakpoint from '@w11r/use-breakpoint'
 
@@ -10,7 +10,7 @@ const StyledSiteContent = styled.div`
     min-height: calc(100vh - var(--dim-header-height));
 `
 
-const SiteContent = ({ children }) => {
+const SiteContent: FC<{}> = ({ children }) => {
     const cols = useBreakpoint('auto auto auto', ['tablet-', 'auto auto'])
     return (
         <StyledSiteContent cols={cols} rows="1fr">

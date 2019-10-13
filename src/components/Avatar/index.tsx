@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import styled from 'styled-components/macro'
 import { useInView } from 'react-intersection-observer'
 
+import IAvatar from './types'
 import avatarSVG from '@/assets/icons/avatar.svg'
 
 const StyledWrapper = styled.div`
@@ -21,7 +22,7 @@ const StyledWrapper = styled.div`
     `}
 `
 
-const Avatar = ({ alt, picture, size = 80 }) => {
+const Avatar: FC<IAvatar> = ({ alt, picture, size = 80 }) => {
     const [ref, inView] = useInView({
         triggerOnce: true,
         threshold: 0
