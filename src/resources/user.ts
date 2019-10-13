@@ -13,6 +13,6 @@ const fetch = (action, params) =>
 const fetchUsers = (params: { limit: number; offset: number }): PromiseLike<IUserCompact[]> =>
     fetch({ url: '/users?limit=:limit&offset=:offset' }, params)
 
-export const fetchOneUser = (params: { userid: string }): PromiseLike<IUser> => fetch({ url: '/user/:userid' }, params)
+export const fetchOneUser = (params: { userId: string }): PromiseLike<IUser> => fetch({ url: '/user/:userId' }, params)
 
 export default fetchUsers

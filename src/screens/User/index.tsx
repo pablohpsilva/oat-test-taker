@@ -51,18 +51,18 @@ const getLoremPixelDefaultImage = (index: string) => `http://lorempixel.com/650/
 
 const User = ({
     match: {
-        params: { userid }
+        params: { userId }
     },
     users = []
 }) => {
-    const user = useMemo(() => users.find(u => u.userid === userid), [userid])
+    const user = useMemo(() => users.find(u => u.userId === userId), [userId])
 
     if (!user) {
         return null
     }
 
     const { picture, ...userProps } = user
-    const bgPicture = getLoremPixelDefaultImage(userid)
+    const bgPicture = getLoremPixelDefaultImage(userId)
     const keys = Object.keys(userProps)
     const cols = '4fr 8fr'
     const rows = keys

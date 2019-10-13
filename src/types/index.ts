@@ -1,7 +1,7 @@
 export interface IUserCompact {
-    userid: string
-    lastname: string
-    firstname: string
+    userId: string
+    lastName: string
+    firstName: string
 }
 
 export interface IUser extends IUserCompact {

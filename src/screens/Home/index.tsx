@@ -42,8 +42,8 @@ const Home = ({ users, fetchUsersAction }) => {
             >
                 {users && users.length ? (
                     users.map(user => (
-                        <StyledTileWrapper key={user.userid}>
-                            <Tile key={user.userid} {...user} />
+                        <StyledTileWrapper key={user.userId}>
+                            <Tile key={user.userId} {...user} />
                         </StyledTileWrapper>
                     ))
                 ) : (
