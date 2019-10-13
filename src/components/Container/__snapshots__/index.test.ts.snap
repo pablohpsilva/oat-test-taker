@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the Container component 1`] = `false`;
+
+exports[`should render the Container component 2`] = `
+.c0 {
+  max-width: var(--dim-site-width);
+  padding: 0 var(--dim-site-offset);
+  width: 100%;
+  position: relative;
+}
+
+@media screen and (max-width:1200px) {
+  .c0 {
+    padding: 0;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;

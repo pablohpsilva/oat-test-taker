@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the Avatar component 1`] = `false`;
+
+exports[`should render the Avatar component 2`] = `
+<Avatar__StyledWrapper
+  picture=""
+  size={80}
+>
+  <picture>
+    <img
+      hidden={true}
+      onError={[Function]}
+      src=""
+    />
+  </picture>
+</Avatar__StyledWrapper>
+`;

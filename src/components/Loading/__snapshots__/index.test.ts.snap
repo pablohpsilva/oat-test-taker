@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the Loading component 1`] = `false`;
+
+exports[`should render the Loading component 2`] = `
+<Loading__StyledWrapper>
+  <Icon
+    alt="loading..."
+    size={30}
+    src={null}
+  />
+</Loading__StyledWrapper>
+`;

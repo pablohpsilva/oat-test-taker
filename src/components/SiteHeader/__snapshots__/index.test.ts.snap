@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the SiteHeader component 1`] = `false`;
+
+exports[`should render the SiteHeader component 2`] = `
+<SiteHeader__StyledSiteHeader
+  color="var(--color-light-0)"
+  cols="auto auto auto"
+  rows="1fr"
+>
+  <SiteHeader__StyledColumn />
+  <SiteHeader__StyledColumn
+    align="center"
+    valign="center"
+  >
+    <Link
+      to="/"
+    >
+      OAT - Test Takers
+    </Link>
+  </SiteHeader__StyledColumn>
+  <SiteHeader__StyledColumn
+    align="flex-end"
+    padding="0 calc(2 * var(--dim-gutter))"
+    valign="center"
+  >
+    <Link
+      to="/import"
+    >
+      <Icon
+        alt="import test takers"
+        src={null}
+      />
+    </Link>
+  </SiteHeader__StyledColumn>
+</SiteHeader__StyledSiteHeader>
+`;

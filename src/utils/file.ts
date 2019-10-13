@@ -1,8 +1,8 @@
 import csv from 'csvtojson'
 
-import { TFunction } from '@/types'
+import { TFunction, IUser } from '@/types'
 
-const readFile = (func: TFunction) => ({ currentTarget: { result } }): PromiseLike<JSON> => {
+const readFile = (func: TFunction) => ({ currentTarget: { result } }): PromiseLike<IUser[]> => {
     return new Promise((resolve, reject) => {
         try {
             return func(resolve, result)

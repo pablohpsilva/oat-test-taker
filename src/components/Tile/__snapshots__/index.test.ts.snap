@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the Tile component 1`] = `false`;
+
+exports[`should render the Tile component 2`] = `
+<Link
+  to="/user/somerandomidhere"
+>
+  <Tile__StyledWrapper>
+    <Tile__Grid>
+      <Avatar
+        size={60}
+      />
+      <Tile__ContentGrid>
+        <div>
+          <span>
+            undefined undefined
+          </span>
+        </div>
+        <div>
+          <span />
+        </div>
+      </Tile__ContentGrid>
+    </Tile__Grid>
+  </Tile__StyledWrapper>
+</Link>
+`;
