@@ -1,13 +1,20 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { text, number } from '@storybook/addon-knobs'
+import { text, number, select } from '@storybook/addon-knobs'
 
 import { Icon } from '@/components'
+import importSVG from '@/assets/icons/import.svg'
+import avatarSVG from '@/assets/icons/avatar.svg'
 import readme from './readme.raw.md'
 
+const selectIcons = {
+    avatarSVG,
+    importSVG
+}
+
 const IconComp = ({
-    src = text('src', 'https://placeimg.com/600/300/any'),
-    alt = text('alt', 'https://placeimg.com/600/300/any'),
+    src = select('src', selectIcons, importSVG),
+    alt = text('alt', 'I am an icon'),
     size = number('size', 30)
 }) => <Icon src={src} alt={alt} size={size} />
 
