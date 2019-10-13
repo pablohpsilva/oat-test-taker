@@ -11,8 +11,9 @@ const TileComp = ({
     firstName = text('firstName', 'Figgaro'),
     lastName = text('lastName', 'Delgado'),
     title = text('title', 'Mr'),
+    email = text('email', 'john@doe.com'),
     picture = text('picture', 'https://placeimg.com/600/300/any')
-}) => <Tile userId={userId} firstName={firstName} lastName={lastName} title={title} picture={picture} />
+}) => <Tile userId={userId} firstName={firstName} lastName={lastName} title={title} picture={picture} email={email} />
 
 const opts = {
     notes: { markdown: readme }
