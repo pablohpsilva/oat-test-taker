@@ -1,11 +1,12 @@
+import { IUser } from '@/types'
 import sessionStorageOr from '@/utils/sessionStorage'
-import { USER_CONCAT_USER_LIST, USER_RESET } from './actions'
+import { EAction, IAction } from './actions'
 
-const initialState = sessionStorageOr([], 'users')
+const initialState = sessionStorageOr<IUser[]>([], 'users')
 
-export const userReducer = (state = initialState, action) => {
+export const userReducer = (state = initialState, action: IAction) => {
     const { type, value } = action
-    if (type === USER_CONCAT_USER_LIST) {
+    if (type === EAction.USER_CONCAT_USER_LIST) {
         const prevUsers = [...state]
 
         const users = value.reduce((acc, curr) => {
@@ -16,7 +17,7 @@ export const userReducer = (state = initialState, action) => {
         return users
     }
 
-    if (type === USER_RESET) {
+    if (type === EAction.USER_RESET) {
         return initialState
     }
 

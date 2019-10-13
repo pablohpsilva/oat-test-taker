@@ -1,8 +1,9 @@
 import { applyMiddleware, createStore, Store } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import saveSessionStorage from '@/entities/user/middleware'
 
+import saveSessionStorage from '@/entities/user/middleware'
 import rootReducer from '@/entities'
+import { TConfigureStore } from '@/types'
 
 type TConfigureStore = (preloadedState) => Store
 

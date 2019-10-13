@@ -6,9 +6,7 @@ import { hot } from 'react-hot-loader'
 import { Main } from '@/layouts'
 import { Home, Import, User } from '@/screens'
 import { ROOT, IMPORT, USER } from '@/config/URL'
-import { ErrorBoundary } from '@/components'
-
-const Loader = () => <div>loading...</div>
+import { ErrorBoundary, Loading } from '@/components'
 
 const WithLayout = ({ layout: Layout, component: Component, ...rest }) => (
     <Route
@@ -28,7 +26,7 @@ const Router: FC<{ history: History }> = ({ history }) => {
     return (
         <>
             <ReactRouter history={history}>
-                <Suspense fallback={<Loader />}>
+                <Suspense fallback={<Loading />}>
                     <Switch>
                         <Redirect path="/en" to={ROOT} />
                         <WithHotLayout layout={Main} path={ROOT} exact component={Home} />

@@ -2,7 +2,7 @@ import csv from 'csvtojson'
 
 import { TFunction } from '@/types'
 
-const readFile = (func: TFunction) => ({ currentTarget: { result } }) => {
+const readFile = (func: TFunction) => ({ currentTarget: { result } }): PromiseLike<JSON> => {
     return new Promise((resolve, reject) => {
         try {
             return func(resolve, result)

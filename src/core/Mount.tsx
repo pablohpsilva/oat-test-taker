@@ -6,8 +6,11 @@ import { Provider } from 'react-redux'
 import { createBrowserHistory } from 'history'
 
 import { Store, Router } from '@/core'
+import { IMountProps } from '@/types'
 
-const Mount = (el: HTMLElement, initialState: {} = {}) => {
+type IMount = (props: IMountProps) => void
+
+const Mount: IMount = (el, initialState = {}) => {
     const history = createBrowserHistory()
     const store = Store(initialState)
 

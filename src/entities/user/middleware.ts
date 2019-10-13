@@ -1,12 +1,13 @@
-import { USER_CONCAT_USER_LIST, USER_RESET } from './actions'
+import { EAction, IAction } from './actions'
 
-const saveSessionStorage = store => next => action => {
-    const settingsActions = [USER_CONCAT_USER_LIST, USER_RESET]
-
+const saveSessionStorage = store => next => (action: IAction) => {
+    const settingsActions = [EAction.USER_CONCAT_USER_LIST, EAction.USER_RESET]
     const result = next(action)
+
     if (settingsActions.find(el => el === action.type)) {
         window.sessionStorage.setItem('users', JSON.stringify(store.getState().users))
     }
+
     return result
 }
 
