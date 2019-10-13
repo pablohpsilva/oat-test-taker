@@ -3,6 +3,10 @@
 This is a simple application that allows you list users from a specific service or import them.
 This app will list all users imported and give, for each on of those, a profile page.
 
+<p align="center">
+  <img src="./prototype/oattesttaker.gif">
+</p>
+
 ## Directories
 
 * `assets`: images and dummy files are stored here;
